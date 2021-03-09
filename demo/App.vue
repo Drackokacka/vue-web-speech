@@ -9,6 +9,7 @@
     <vue-web-speech
       v-model="record"
       @results="onResults"
+      @unrecognized="unrecognized"
     >
       <template v-slot:input="{text}">
         <textarea :value="text" />
@@ -32,6 +33,9 @@ export default {
     onResults (data) {
       console.log(data)
       this.results = data
+    },
+    unrecognized () {
+      alert('Speech was not recognized with satisfying confidence.')
     }
   }
 }
