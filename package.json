@@ -2,7 +2,7 @@
   "name": "vue-web-speech",
   "description": "Vue wrapper for Web Speech API for recognizing voice",
   "author": "Drackokacka",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "private": false,
   "main": "dist/vue-web-speech.common.js",
@@ -13,7 +13,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-library" : "vue-cli-service build --target lib --name vue-web-speech ./src/install.js",
+    "build-library": "vue-cli-service build --target lib --name vue-web-speech ./src/install.js",
     "lint": "vue-cli-service lint"
   },
   "repository": {
