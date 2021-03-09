@@ -8,6 +8,8 @@ Web Speech API is in experimental phase, check [browser compatibility](https://d
 npm i vue-web-speech
 ```
 
+## [Demo](https://drackokacka.github.io/vue-web-speech)
+
 ## Usage
 
 Inject plugin to your vue instance by Vue.use
