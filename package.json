@@ -2,8 +2,12 @@
   "name": "vue-web-speech",
   "description": "Vue wrapper for Web Speech API for recognizing voice",
   "author": "Drackokacka",
-  "keywords": ["web speech api", "voice recognition", "speech recognition"],
-  "version": "0.1.1",
+  "keywords": [
+    "web speech api",
+    "voice recognition",
+    "speech recognition"
+  ],
+  "version": "0.1.2",
   "license": "MIT",
   "private": false,
   "main": "dist/vue-web-speech.common.js",
