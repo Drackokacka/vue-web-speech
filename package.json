@@ -9,7 +9,7 @@
     "text-to-speech",
     "speech-to-text"
   ],
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "private": false,
   "main": "dist/vue-web-speech.common.js",
