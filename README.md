@@ -1,6 +1,7 @@
 # vue-web-speech
 
 Vue wrapper for Web Speech API for voice recognition.  
+Package contains two components `<vue-web-speech>` for voice recognition and `<vue-web-speech-synth>` for voice synthesis.  
 Web Speech API is in experimental phase, check [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition#browser_compatibility) before using in production.
 
 ## Installation 
@@ -30,10 +31,13 @@ Then use it as component
       v-model="record"
       @results="onResults"
     />
+    <vue-web-speech-synth
+      v-model="play"
+    />
 </template>
 ```
 
-## Documentation
+## Documentation for `<vue-web-speech>`
 
 ### Properties
 
@@ -68,7 +72,7 @@ Example of input slot
 | **results** | Array | Returns array of transcripts filtered by `confidenceLimit`. | 
 | **resultsRaw** | [SpeechRecognitionResultList](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionResultList) | Returns raw `SpeechRecognitionResultList` on `onResult` event without `confidenceLimit` filtering. | 
 | **unrecognized** | null | Fires when `confidenceLimit` was not satisfied. When `continuous` prop is on, fires when no result satisfied `confidenceLimit`. | 
-| **error** | Event | Fires native [error](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/error_event) event. | 
+| **error** | Event | Fires native [onerror](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/error_event) event. | 
 | **start** | Event | Fires native [onstart](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/start_event) event. | 
 | **end** | Event | Fires native [onend](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/end_event) event. | 
 | **speechstart** | Event | Fires native [onspeechstart](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/speechstart_event) event. | 
@@ -78,3 +82,25 @@ Example of input slot
 | **soundstart** | Event | Fires native [onsoundstart](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/soundstart_event) event. | 
 | **soundend** | Event | Fires native [onsoundend](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/soundend_event) event. | 
 | **nomatch** | Event | Fires native [onnomatch](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/nomatch_event) event. | 
+
+
+## Documentation for `<vue-web-speech-synth>`
+
+### Properties
+
+| Prop | Type | Default | Descrtiption |
+|---|---|---|---|
+| **v-model** | *Boolean* | false | Used to bind playing state. Can be used to start speaking (`true`) or stop speaking (`false`).| 
+| **voice** | *SpeechSynthesisVoice* | Default system voice. | Voice to use for voice synthesis. Get in the `@list-voices` event | 
+| **text** | *String* | null | Text to be synthesised. |
+| **rate** | *String* \| *Number* | 1 | Speed at which the utterance will be spoken at. |
+| **pitch** | *String* \| *Number* | 1 | Pitch at which the utterance will be spoken at. |
+ 
+---
+### Events
+| Event | Returns | Descrtiption |
+|---|---|---|
+| **list-voices** | Array of [SpeechSynthesisVoice](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice) | Returns array of available `SpeechSynthesisVoice` supported by system. | 
+| **error** | Event | Fires native [onerror](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/error_event) event. | 
+| **end** | Event | Fires native [onend](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/end_event) event. | 
+| **boundary** | Event | Fires native [onboundary](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/boundary_event) event. | 

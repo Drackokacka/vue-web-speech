@@ -16,6 +16,30 @@
       </template>
     </vue-web-speech>
     {{results}}
+
+    <h3>
+      Write text and press play
+    </h3>
+    <input v-model="synthText"/>
+    <br>
+    <select v-model="synthVoice">
+      <option
+        v-for="(voice, index) in voiceList"
+        :key="index"
+        :value="voice"
+      >
+        {{voice.name }} [{{voice.lang}}]
+      </option>
+    </select>
+    <br>
+    <button @click="play = !play">{{play?'Stop':'Play'}}</button>
+    <br>
+    <vue-web-speech-synth
+      v-model="play"
+      :voice="synthVoice"
+      :text="synthText"
+      @list-voices="listVoices"
+    />
   </div>
 </template>
 
@@ -26,16 +50,25 @@ export default {
   name: 'App',
   data () {
     return {
-      record: false
+      record: false,
+      results: null,
+
+      voiceList: [],
+      play: false,
+      synthVoice: null,
+      synthText: 'Hello, I am your personal speaker!'
     }
   },
   methods: {
     onResults (data) {
-      console.log(data)
       this.results = data
     },
     unrecognized () {
       alert('Speech was not recognized with satisfying confidence.')
+    },
+
+    listVoices (list) {
+      this.voiceList = list
     }
   }
 }

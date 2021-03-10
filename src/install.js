@@ -1,9 +1,11 @@
 // Import vue components
-import WebSpeechComponent from './components/WebSpeech.vue'
+import WebSpeechRecogComponent from './components/WebSpeechRecognize.vue'
+import WebSpeechSynthComponent from './components/WebSpeechSynthetize.vue'
 
 const WebSpeech = {
   install (Vue, options) {
-    Vue.component('vue-web-speech', WebSpeechComponent)
+    Vue.component('vue-web-speech', WebSpeechRecogComponent)
+    Vue.component('vue-web-speech-synth', WebSpeechSynthComponent)
   }
 }
 

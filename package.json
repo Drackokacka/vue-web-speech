@@ -1,11 +1,13 @@
 {
   "name": "vue-web-speech",
-  "description": "Vue wrapper for Web Speech API for recognizing voice",
+  "description": "Vue wrapper for Web Speech API for recognizing voice and speech synthesis",
   "author": "Drackokacka",
   "keywords": [
     "web speech api",
     "voice recognition",
-    "speech recognition"
+    "speech synthesis",
+    "text-to-speech",
+    "speech-to-text"
   ],
   "version": "0.1.2",
   "license": "MIT",
